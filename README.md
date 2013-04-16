@@ -46,4 +46,10 @@ The following methods are available
 
 * **refresh** - If you wish to programmatically add or remove list items, and are using the alternate option, you'll need to call this to ensure the alternate class is applied correctly afterwards. You can call it as follows:
 
+
     $('ul#mylist').listfilter("refresh");
+
+License
+=======
+
+TBC
