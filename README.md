@@ -8,7 +8,7 @@ How do I use it?
 
 An example:
 
-> $('ul#mylist').listfilter({
->     'filter': $('input#mylistfilter'),
->     'clearlink': $('a#clearmylistfilter')
-> });
+    $('ul#mylist').listfilter({
+        'filter': $('input#mylistfilter'),
+        'clearlink': $('a#clearmylistfilter')
+    });
