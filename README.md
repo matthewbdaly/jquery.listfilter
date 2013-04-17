@@ -1,7 +1,7 @@
 Listfilter
 ----------
 
-Listfilter is a jQuery plugin for filtering HTML lists.
+Listfilter is a jQuery plugin for filtering HTML lists. Check out the [demo](http://astutech.github.io/jquery.listfilter/)
 
 How do I use it?
 ================
