@@ -49,4 +49,4 @@ If you wish to programmatically add or remove list items, and are using the alte
 License
 =======
 
-TBC
+GPLv2
