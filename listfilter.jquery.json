@@ -1,0 +1,21 @@
+{
+    "name": "listfilter",
+    "version": "1.0.0",
+    "title": "jQuery Listfilter",
+    "author": 
+    {
+        "name": "Matthew Daly",
+        "email": "matthew@astutech.com",
+        "url": "http://www.astutech.co.uk/"
+    },
+    "licenses": [
+        {
+            "type": "GPLv2",
+            "url": "http://opensource.org/licenses/GPL-2.0"
+        }
+    ],
+    "dependencies":
+    {
+        "jquery": "*"
+    }
+}
