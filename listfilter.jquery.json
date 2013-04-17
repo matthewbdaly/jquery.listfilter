@@ -1,10 +1,10 @@
 {
     "name": "listfilter",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "title": "jQuery Listfilter",
     "author": 
     {
-        "name": "Matthew Daly",
+        "name": "astutech ltd",
         "email": "matthew@astutech.com",
         "url": "http://www.astutech.co.uk/"
     },
@@ -17,5 +17,11 @@
     "dependencies":
     {
         "jquery": "*"
-    }
+    },
+    "description":
+    {
+        "A simple jQuery plugin for creating a filter for HTML lists"
+    },
+    "keywords": ["filter", "search"],
+    "docs": "https://github.com/Astutech/jquery.listfilter#readme"
 }
