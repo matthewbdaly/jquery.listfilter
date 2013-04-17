@@ -1,6 +1,6 @@
 {
     "name": "listfilter",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "title": "jQuery Listfilter",
     "author": 
     {
@@ -18,10 +18,7 @@
     {
         "jquery": "*"
     },
-    "description":
-    {
-        "A simple jQuery plugin for creating a filter for HTML lists"
-    },
+    "description": "A simple jQuery plugin for creating a filter for HTML lists",
     "keywords": ["filter", "search"],
     "docs": "https://github.com/Astutech/jquery.listfilter#readme"
 }
