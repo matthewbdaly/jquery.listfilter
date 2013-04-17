@@ -24,7 +24,7 @@ To create a filtered list, you need two things as a minimum:
 Assuming that the list you want to filter has an ID of mylist and the filter is an input with an id of myfilter, the following would set up a listfilter:
 
     $('ul#mylist').listfilter({
-        'filter': 'input#myfilter'
+        'filter': $('input#myfilter')
     });
 
 This is the bare minimum you need to create a listfilter, but there are other settings.
