@@ -1,0 +1,11 @@
+ul#mylist {
+    width: 80px;
+}
+
+ul#mylist li {
+    background-color: tomato;
+}
+
+ul#mylist li.other {
+    background-color: green;
+}
