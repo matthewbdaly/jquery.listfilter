@@ -38,7 +38,12 @@
                 clearlink = $('<a>Clear</a>').insertAfter(filter);
             }
 
-            // When the contents of the filter change, update the list
+            // If alternate is set, apply the alternate class
+            if (that.settings.alternate) {
+                that.items.filter(':odd').addClass(that.settings.alternateclass);
+            }
+
+             // When the contents of the filter change, update the list
             filter
                 .change(function () {
                     // Get the value of the filter
