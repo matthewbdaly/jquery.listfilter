@@ -38,6 +38,10 @@
                 clearlink = $('<a>Clear</a>').insertAfter(filter);
             }
 
+            // If alternate is set, amend the link styling to maintain alternation
+            if (that.settings.alternate) {
+                that.items.filter(':odd').addClass(that.settings.alternateclass);
+            }
             // When the contents of the filter change, update the list
             filter
                 .change(function () {
