@@ -20,5 +20,6 @@
     },
     "description": "A simple jQuery plugin for creating a filter for HTML lists",
     "keywords": ["filter", "search"],
-    "docs": "https://github.com/Astutech/jquery.listfilter#readme"
+    "docs": "https://github.com/Astutech/jquery.listfilter#readme",
+    "demo": "http://astutech.github.io/jquery.listfilter/"
 }
