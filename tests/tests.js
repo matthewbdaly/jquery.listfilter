@@ -106,4 +106,61 @@ $(function () {
         // Now assert 5 elements visible
         ok(myfilter.children('li:visible').length === 5, "All 5 items visible");
     });
+
+    // Test refresh
+    test("Test refresh after items added or removed", function () {
+
+        // This test needs to run last, as otherwise it mucks up the other tests
+        stop();
+        setTimeout(function () {
+
+            // Restart the test after 1 second
+            start();
+
+            // Test classes applied correctly and length correct
+            ok(myfilter.children('li:visible').length === 5, "All 5 items visible");
+            ok(myfilter.children('li:hidden').length === 0, "No items hidden");
+            ok(myfilter.children('li:visible:odd').hasClass('other'), "Odd items have a class of 'other'");
+            ok(!myfilter.children('li:visible:even').hasClass('other'), "Even items do not have a class of 'other'");
+
+            // Append a new item and refresh the listview
+            $('ul#mylist').append('<li>Six</li>');
+            myfilter.listfilter("refresh");
+
+            // Test length
+            ok(myfilter.children('li:visible').length === 6, "All 6 items visible");
+            ok(myfilter.children('li:hidden').length === 0, "No items hidden");
+
+            // Test classes
+            ok(myfilter.children('li:visible:odd').hasClass('other'), "Odd items have a class of 'other'");
+            ok(!myfilter.children('li:visible:even').hasClass('other'), "Even items do not have a class of 'other'");
+
+            // Test filter
+            filter.val('i').change();
+            ok(myfilter.children('li:visible').length === 2, "Only 2 items visible");
+            ok(myfilter.children('li:hidden').length === 4, "4 items hidden");
+            ok(myfilter.children('li:visible:odd').hasClass('other'), "Odd items have a class of 'other'");
+            ok(!myfilter.children('li:visible:even').hasClass('other'), "Even items do not have a class of 'other'");
+            filter.val('').change();
+
+            // Now remove some items and refresh the listview
+            $('ul#mylist li:nth-child(6)').remove();
+            $('ul#mylist li:nth-child(5)').remove();
+            myfilter.listfilter("refresh");
+
+            // Test length and classes
+            ok(myfilter.children('li:visible').length === 4, "All 4 items visible");
+            ok(myfilter.children('li:hidden').length === 0, "No items hidden");
+            ok(myfilter.children('li:visible:odd').hasClass('other'), "Odd items have a class of 'other'");
+            ok(!myfilter.children('li:visible:even').hasClass('other'), "Even items do not have a class of 'other'");
+
+            // Test filter
+            filter.val('r').change();
+            ok(myfilter.children('li:visible').length === 2, "Only 2 items visible");
+            ok(myfilter.children('li:hidden').length === 2, "2 items hidden");
+            ok(myfilter.children('li:visible:odd').hasClass('other'), "Odd items have a class of 'other'");
+            ok(!myfilter.children('li:visible:even').hasClass('other'), "Even items do not have a class of 'other'");
+            filter.val('').change();
+        }, 1000);
+    });
 });
