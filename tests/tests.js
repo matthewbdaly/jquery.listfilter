@@ -57,6 +57,40 @@ $(function () {
         ok($('ul#mylist li:visible').length === 5, "All 5 items visible");
     });
 
+    // Test filter and alternate together
+    test("Test filter and alternate together work as expected", function () {
+
+        // Test that all 5 items are visible
+        ok($('ul#mylist li:visible').length === 5, "All 5 items visible");
+        ok($('ul#mylist li:hidden').length === 0, "No items hidden");
+
+        // Test classes applied correctly
+        ok($('ul#mylist li:visible:odd').hasClass('other'), "Odd items have a class of 'other'");
+        ok(!$('ul#mylist li:visible:even').hasClass('other'), "Even items do not have a class of 'other'");
+
+        // Enter text in the filter
+        filter.val('e').change();
+
+        // Test that three items are visible and two are not
+        ok($('ul#mylist li:visible').length === 3, "Only 3 items visible");
+        ok($('ul#mylist li:hidden').length === 2, "Only 2 items hidden");
+
+        // Test classes applied correctly
+        ok($('ul#mylist li:visible:odd').hasClass('other'), "Odd items have a class of 'other'");
+        ok(!$('ul#mylist li:visible:even').hasClass('other'), "Even items do not have a class of 'other'");
+
+        // Remove text in the filter
+        filter.val('').change();
+
+        // Test that all 5 items are visible
+        ok($('ul#mylist li:visible').length === 5, "All 5 items visible");
+        ok($('ul#mylist li:hidden').length === 0, "No items hidden");
+
+        // Test classes applied correctly
+        ok($('ul#mylist li:visible:odd').hasClass('other'), "Odd items have a class of 'other'");
+        ok(!$('ul#mylist li:visible:even').hasClass('other'), "Even items do not have a class of 'other'");
+    });
+
     // Test clear
     test("Test filter cleared", function () {
 
