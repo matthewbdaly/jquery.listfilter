@@ -36,13 +36,27 @@ $(function () {
     // Test filter
     test("Test filter works as expected", function () {
 
-        // Declare the variables used
-
         // Enter text in the filter
         filter.val('T').change();
 
         // Assert that only two elements are now visible
         ok($('ul#mylist li:visible').length === 2, "Only 2 items visible");
         filter.val('').change();
+    });
+
+    // Test clear
+    test("Test filter cleared", function () {
+
+        // Enter text in the filter
+        filter.val('T').change();
+
+        // Assert that only two elements are now visible
+        ok($('ul#mylist li:visible').length === 2, "Only 2 items visible");
+
+        // Clear the filter
+        clearfilter.trigger('click');
+
+        // Now assert 5 elements visible
+        ok($('ul#mylist li:visible').length === 5, "All 5 items visible");
     });
 });
