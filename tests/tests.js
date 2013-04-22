@@ -47,7 +47,7 @@ $(function () {
         filter.val('').change();
 
         // Enter more text
-        filter.val('o').change()
+        filter.val('o').change();
 
         // Assert that only thee elements are now visible
         ok($('ul#mylist li:visible').length === 3, "Only 3 items visible");
