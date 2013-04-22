@@ -32,4 +32,17 @@ $(function () {
             ok(!$(this).hasClass('other'), "Event item does not have a class of 'other'");
         });
     });
+
+    // Test filter
+    test("Test filter works as expected", function () {
+
+        // Declare the variables used
+
+        // Enter text in the filter
+        filter.val('T').change();
+
+        // Assert that only two elements are now visible
+        ok($('ul#mylist li:visible').length === 2, "Only 2 items visible");
+        filter.val('').change();
+    });
 });
