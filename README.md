@@ -46,6 +46,11 @@ If you wish to programmatically add or remove list items, and are using the alte
 
     $('ul#mylist').listfilter("refresh");
 
+Tests
+=====
+
+Listfilter comes with its own QUnit test suite. You can find this in the tests folder 
+
 License
 =======
 
