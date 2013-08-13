@@ -16,7 +16,8 @@
                 'filter': null,
                 'clearlink': null,
                 'alternate': null,
-                'alternateclass': 'alternate'
+                'alternateclass': 'alternate',
+                'callback': function(){}
             }, options);
 
             // Get the items
@@ -70,6 +71,7 @@
                     
                     // Display them
                     match.show();
+                    that.settings.callback();
                 }).on('keyup', function () {
                     filter.change();
                 });
