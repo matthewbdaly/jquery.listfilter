@@ -7,7 +7,10 @@ $(function () {
         'filter': filter,
         'clearlink': clearfilter,
         'alternate': true,
-        'alternateclass': 'other'
+        'alternateclass': 'other',
+        'callback': function () {
+            window.callback = true;
+        }
     });
 
     // Test alternate class applied correctly
@@ -105,6 +108,19 @@ $(function () {
 
         // Now assert 5 elements visible
         ok(myfilter.children('li:visible').length === 5, "All 5 items visible");
+    });
+
+    // Test callback function
+    test("Test callback function", function () {
+
+        // Enter text in the filter
+        filter.val('T').change();
+
+        // Assert the value of window.callback is true
+        equal(window.callback, true, 'Callback function fired');
+
+        // Clear the filter
+        clearfilter.trigger('click');
     });
 
     // Test refresh

@@ -1,0 +1,9 @@
+{
+  "framework": "qunit",
+  "test_page": "tests/index.html",
+  "src_files": [
+    "tests/jquery-1.9.1.min.js",
+    "jquery.listfilter.min.js",
+    "tests/tests.js"
+  ]
+}
