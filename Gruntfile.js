@@ -15,6 +15,11 @@ module.exports = function(grunt) {
                     predef: [
                         'jQuery',
                         '$',
+                        'ok',
+                        'test',
+                        'equal',
+                        'start',
+                        'stop',
                         'window',
                         'document'
                     ]
