@@ -17,7 +17,7 @@
                 'clearlink': null,
                 'alternate': null,
                 'alternateclass': 'alternate',
-                'callback': function () {}
+                'callback': null
             }, options);
 
             // Get the items
