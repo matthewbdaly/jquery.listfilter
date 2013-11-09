@@ -21,13 +21,19 @@ module.exports = function(grunt) {
                 }
             }
         },
+        uglify: {
+            dist: {
+                src: 'jquery.listfilter.js',
+                dest: 'jquery.listfilter.min.js'
+            }
+        },
         watch: {
             scripts: {
                 files: [
                     'jquery.listfilter.js',
                     'tests/tests.js'
                 ],
-                tasks: ['test'],
+                tasks: ['build'],
                 options: {
                     spawn: false
                 }
@@ -37,9 +43,13 @@ module.exports = function(grunt) {
 
     // Load plugins
     grunt.loadNpmTasks('grunt-contrib-qunit');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-jslint');
 
     // Task to run tests
     grunt.registerTask('test', ['jslint', 'qunit']);
+
+    // Task to build
+    grunt.registerTask('build', ['jslint', 'qunit', 'uglify']);
 };
