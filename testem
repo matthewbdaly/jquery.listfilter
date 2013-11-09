@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 
 testem ci -t tests/index.html
+exit
