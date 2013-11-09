@@ -17,7 +17,7 @@ $(function () {
     test("Alternate class applied correctly", function () {
 
         // Declare the variables used
-        var evenitems, item, odditems;
+        var evenitems, odditems;
 
         // Get all the even list items
         evenitems = myfilter.children('li:even');
