@@ -9,7 +9,7 @@ $(function () {
         'alternate': true,
         'alternateclass': 'other',
         'callback': function () {
-            window.callback = true;
+            window.callback += 1;
         }
     });
 
@@ -113,14 +113,20 @@ $(function () {
     // Test callback function
     test("Test callback function", function () {
 
+        // Set window.callback to 0
+        window.callback = 0;
+
         // Enter text in the filter
         filter.val('T').change();
 
-        // Assert the value of window.callback is true
-        equal(window.callback, true, 'Callback function fired');
+        // Assert the value of window.callback is 1
+        equal(window.callback, 1, 'Callback function fired');
 
         // Clear the filter
         clearfilter.trigger('click');
+
+        // Assert the value of window.callback is 2
+        equal(window.callback, 2, 'Callback function fired');
     });
 
     // Test refresh
