@@ -12,6 +12,7 @@ module.exports = function(grunt) {
                 ],
                 directives: {
                     browser: true,
+                    unparam: true,
                     predef: [
                         'jQuery',
                         '$',
