@@ -2,5 +2,8 @@
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-qunit": "~0.3.0"
+  },
+  "scripts": {
+      "test": "grunt test --verbose"
   }
 }
