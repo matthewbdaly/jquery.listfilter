@@ -50,7 +50,7 @@ If you wish to programmatically add or remove list items, and are using the alte
 Tests
 =====
 
-Listfilter comes with its own QUnit test suite. You can find this in the tests folder . It's set up to be run with Testem.
+Listfilter comes with its own QUnit test suite. You can find this in the tests folder . It's set up to be run either with Testem, or with `grunt test`. Running `grunt test` will also run JSLint.
 
 License
 =======
