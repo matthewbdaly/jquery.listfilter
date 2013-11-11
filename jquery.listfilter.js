@@ -4,7 +4,7 @@
     var methods = {
         init: function (options) {
             // Get the variables used
-            var i, clearlink, items, match, filter, filtertext, that = this, settings;
+            var clearlink, match, filter, filtertext, that = this;
 
             // Create a case-insensitive version of :contains
             $.expr[':'].icontains = function (obj, index, meta, stack) {
@@ -17,7 +17,7 @@
                 'clearlink': null,
                 'alternate': null,
                 'alternateclass': 'alternate',
-                'callback': function(){}
+                'callback': null
             }, options);
 
             // Get the items
@@ -68,7 +68,7 @@
                     if (that.settings.alternate) {
                         match.filter(':odd').addClass(that.settings.alternateclass);
                     }
-                    
+
                     // Display them
                     match.show();
                     that.settings.callback();
@@ -107,13 +107,19 @@
     };
 
     $.fn.listfilter = function (method) {
+        // Define response variable
+        var response;
+
         // Method calling login
         if (methods[method]) {
-            return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
-        } else if (typeof method === 'object' || ! method) {
-            return methods.init.apply(this, arguments);
+            response = methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
+        } else if (typeof method === 'object' || !method) {
+            response = methods.init.apply(this, arguments);
         } else {
             $.error('Method ' + method + ' not available');
         }
+        if (response) {
+            return response;
+        }
     };
-})(jQuery);
+}(jQuery));
