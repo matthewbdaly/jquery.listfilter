@@ -39,9 +39,29 @@ module.exports = function(grunt) {
                     'jquery.listfilter.js',
                     'tests/tests.js'
                 ],
-                tasks: ['build'],
+                tasks: [
+                    'test',
+                    'build'
+                ],
                 options: {
-                    spawn: false
+                    spawn: false,
+                    livereload: {
+                        options: {
+                            livereload: 35729
+                        }
+                    }
+                }
+            }
+        },
+        connect: {
+            app: {
+                options: {
+                    base: '.',
+                    port: 9000,
+                    hostname: 'localhost',
+                    open: 'http://localhost:9000/example/index.html',
+                    livereload: 35729,
+                    debug: true
                 }
             }
         }
@@ -52,10 +72,29 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-jslint');
+    grunt.loadNpmTasks('grunt-contrib-connect');
 
     // Task to run tests
-    grunt.registerTask('test', ['jslint', 'qunit']);
+    grunt.registerTask('test', [
+        'jslint',
+        'qunit'
+    ]);
 
     // Task to build
-    grunt.registerTask('build', ['jslint', 'qunit', 'uglify']);
+    grunt.registerTask('build', [
+        'test',
+        'uglify'
+    ]);
+
+    // Server task
+    grunt.registerTask('server', [
+        'build',
+        'connect',
+        'watch'
+    ]);
+
+    // Default task
+    grunt.registerTask('default', [
+        'build'
+    ]);
 };
