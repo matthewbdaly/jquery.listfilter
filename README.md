@@ -13,6 +13,14 @@ An example:
         'clearlink': $('a#clearmylistfilter')
     });
 
+Installation
+============
+
+It's now available via Bower:
+
+    bower install jquery.listfilter
+
+
 Creating a filtered list
 ========================
 
