@@ -59,7 +59,7 @@ module.exports = function(grunt) {
                     base: '.',
                     port: 9000,
                     hostname: 'localhost',
-                    open: 'http://localhost:9000/example/index.html',
+                    open: 'http://localhost:9000/tests/index.html',
                     livereload: 35729,
                     debug: true
                 }
