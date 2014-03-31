@@ -8,6 +8,6 @@
     "grunt-contrib-connect": "~0.6.0"
   },
   "scripts": {
-    "test": "istanbul cover grunt test --verbose"
+    "test": "grunt test --verbose"
   }
 }
