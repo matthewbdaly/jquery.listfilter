@@ -194,4 +194,121 @@ $(function () {
             filter.val('').change();
         }, 1000);
     });
+
+    // Separate tests for tables
+    // Test alternate class applied correctly
+    test("Alternate class applied correctly for tables", function () {
+
+        // Declare the variables used
+        var evenitems, odditems;
+
+        // Get all the even list items
+        evenitems = mytablefilter.find('tr:even');
+
+        // Get just the odd-numbered items (zero-indexed, so will be every second item
+        odditems = mytablefilter.find('tr:odd');
+
+        // Assert that each odd item has a class of 'other'
+        odditems.each(function () {
+            ok($(this).hasClass('other'), "Odd item has a class of 'other'");
+        });
+
+        // Assert that each even item does not have a class of 'other'
+        evenitems.each(function () {
+            ok(!$(this).hasClass('other'), "Event item does not have a class of 'other'");
+        });
+    });
+
+    // Test filter
+    test("Test filter works as expected for tables", function () {
+
+        // Test filter with no content
+        ok(mytablefilter.find('tr:visible').length === 5, "All 5 items visible");
+
+        // Enter text in the filter
+        tablefilter.val('T').change();
+
+        // Assert that only two elements are now visible
+        ok(mytablefilter.find('tr:visible').length === 2, "Only 2 items visible");
+        tablefilter.val('').change();
+
+        // Enter more text
+        tablefilter.val('o').change();
+
+        // Assert that only thee elements are now visible
+        ok(mytablefilter.find('tr:visible').length === 3, "Only 3 items visible");
+        tablefilter.val('').change();
+
+        // Assert that all 4 are again visible
+        ok(mytablefilter.find('tr:visible').length === 5, "All 5 items visible");
+    });
+
+    // Test filter and alternate together
+    test("Test filter and alternate together work as expected for tables", function () {
+
+        // Test that all 5 items are visible
+        ok(mytablefilter.find('tr:visible').length === 5, "All 5 items visible");
+        ok(mytablefilter.find('tr:hidden').length === 0, "No items hidden");
+
+        // Test classes applied correctly
+        ok(mytablefilter.find('tr:visible:odd').hasClass('other'), "Odd items have a class of 'other'");
+        ok(!mytablefilter.find('tr:visible:even').hasClass('other'), "Even items do not have a class of 'other'");
+
+        // Enter text in the filter
+        tablefilter.val('e').change();
+
+        // Test that three items are visible and two are not
+        ok(mytablefilter.find('tr:visible').length === 3, "Only 3 items visible");
+        ok(mytablefilter.find('tr:hidden').length === 2, "Only 2 items hidden");
+
+        // Test classes applied correctly
+        ok(mytablefilter.find('tr:visible:odd').hasClass('other'), "Odd items have a class of 'other'");
+        ok(!mytablefilter.find('tr:visible:even').hasClass('other'), "Even items do not have a class of 'other'");
+
+        // Remove text in the filter
+        tablefilter.val('').change();
+
+        // Test that all 5 items are visible
+        ok(mytablefilter.find('tr:visible').length === 5, "All 5 items visible");
+        ok(mytablefilter.find('tr:hidden').length === 0, "No items hidden");
+
+        // Test classes applied correctly
+        ok(mytablefilter.find('tr:visible:odd').hasClass('other'), "Odd items have a class of 'other'");
+        ok(!mytablefilter.find('tr:visible:even').hasClass('other'), "Even items do not have a class of 'other'");
+    });
+
+    // Test clear
+    test("Test filter cleared for tables", function () {
+
+        // Enter text in the filter
+        tablefilter.val('T').change();
+
+        // Assert that only two elements are now visible
+        ok(mytablefilter.find('tr:visible').length === 2, "Only 2 items visible");
+
+        // Clear the filter
+        tableclearfilter.trigger('click');
+
+        // Now assert 5 elements visible
+        ok(mytablefilter.find('tr:visible').length === 5, "All 5 items visible");
+    });
+
+    // Test callback function
+    test("Test callback function for tables", function () {
+
+        // Set window.callback to 0
+        window.callback = 0;
+
+        // Enter text in the filter
+        tablefilter.val('T').change();
+
+        // Assert the value of window.callback is 1
+        equal(window.callback, 1, 'Callback function fired');
+
+        // Clear the filter
+        tableclearfilter.trigger('click');
+
+        // Assert the value of window.callback is 2
+        equal(window.callback, 2, 'Callback function fired');
+    });
 });
