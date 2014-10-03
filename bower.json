@@ -1,7 +1,7 @@
 {
   "name": "jquery.listfilter",
   "main": "jquery.listfilter.js",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "homepage": "https://github.com/Astutech/jquery.listfilter",
   "authors": [
     "Matthew Daly <matthew@astutech.com>"
