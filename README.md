@@ -3,7 +3,7 @@ Listfilter
 
 [![Build Status](https://travis-ci.org/Astutech/jquery.listfilter.png?branch=master)](https://travis-ci.org/Astutech/jquery.listfilter)
 
-Listfilter is a jQuery plugin for filtering HTML lists. Check out the [demo](http://astutech.github.io/jquery.listfilter/) to see the plugin in actionand try the [tests](http://astutech.github.io/jquery.listfilter/tests/)
+Listfilter is a jQuery plugin for filtering HTML lists. Check out the [demo](http://astutech.github.io/jquery.listfilter/) to see the plugin in action and try the [tests](http://astutech.github.io/jquery.listfilter/tests/)
 
 How do I use it?
 ================
