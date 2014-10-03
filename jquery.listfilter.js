@@ -17,12 +17,11 @@
                 'clearlink': null,
                 'alternate': null,
                 'alternateclass': 'alternate',
-                'nofilterclass': 'nofilter',
                 'callback': null
             }, options);
 
             // Get the items
-            that.items = that.find('div :not(.' + that.settings.nofilterclass + '), li :not(.' + that.settings.nofilterclass + '), tr :not(.' + that.settings.nofilterclass + ')');
+            that.items = that.find('div, li, tr');
 
             // If no filter element defined, prepend one to the list
             if (that.settings.filter) {
@@ -88,7 +87,7 @@
         refresh: function () {
             // Get a reference to the items in the list
             var that = this, filtertext, filter, match;
-            that.items = that.find('div :not(.' + that.settings.nofilterclass + '), li :not(.' + that.settings.nofilterclass + '), tr :not(.' + that.settings.nofilterclass + ')');
+            that.items = that.children('div, li, tr');
 
             // If alternate is set, remove the alternate class from all the items and reapply it as appropriate
             if (that.settings.alternate) {
