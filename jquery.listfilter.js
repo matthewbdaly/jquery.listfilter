@@ -87,7 +87,7 @@
         refresh: function () {
             // Get a reference to the items in the list
             var that = this, filtertext, filter, match;
-            that.items = that.children('div, li, tr');
+            that.items = that.find('div, li, tr');
 
             // If alternate is set, remove the alternate class from all the items and reapply it as appropriate
             if (that.settings.alternate) {
