@@ -2,10 +2,19 @@ $(function () {
     'use strict';
 
     // Apply the filter
-    var myfilter, filter = $('input#filterinput'), clearfilter = $('input#clearfilter');
+    var myfilter, mytablefilter, filter = $('input#filterinput'), clearfilter = $('input#clearfilter'), tablefilter = $('input#tablefilterinput'), tableclearfilter = $('input#tableclearfilter');
     myfilter = $('ul#mylist').listfilter({
         'filter': filter,
         'clearlink': clearfilter,
+        'alternate': true,
+        'alternateclass': 'other',
+        'callback': function () {
+            window.callback += 1;
+        }
+    });
+    mytablefilter = $('table#mytable').listfilter({
+        'filter': tablefilter,
+        'clearlink': tableclearfilter,
         'alternate': true,
         'alternateclass': 'other',
         'callback': function () {
