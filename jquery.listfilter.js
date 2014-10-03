@@ -17,6 +17,7 @@
                 'clearlink': null,
                 'alternate': null,
                 'alternateclass': 'alternate',
+                'nofilter': 'nofilter',
                 'callback': null
             }, options);
 
@@ -61,7 +62,7 @@
                     if (filtertext.length < 1) {
                         match = that.items;
                     } else {
-                        match = that.items.filter(':icontains(' + filtertext + ')');
+                        match = that.items.filter('.' + that.settings.nofilter + ', :icontains(' + filtertext + ')');
                     }
 
                     // If alternate is set, amend the link styling to maintain alternation
@@ -97,7 +98,7 @@
                 filter = that.settings.filter;
                 filtertext = filter.val();
                 if (filtertext.length > 0) {
-                    match = that.items.filter(':icontains(' + filtertext + ')');
+                    match = that.items.filter('.' + that.settings.nofilter + ', :icontains(' + filtertext + ')');
                     match.filter(':odd').addClass(that.settings.alternateclass);
                 } else {
                     that.items.filter(':odd').addClass(that.settings.alternateclass);
