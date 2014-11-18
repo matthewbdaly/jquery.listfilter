@@ -1,9 +1,6 @@
 module.exports = function(grunt) {
     // Project configuration.
     grunt.initConfig({
-        qunit: {
-            files: ['tests/index.html']
-        },
         jslint: {
             client: {
                 src: [
@@ -64,6 +61,20 @@ module.exports = function(grunt) {
                     debug: true
                 }
             }
+        },
+        qunit: {
+            options: {
+                '--web-security': 'no',
+                coverage: {
+                    disposeCollector: true,
+                    src: ['jquery.listfilter.js'],
+                    instrumentedFiles: 'temp/',
+                    htmlReport: 'report/coverage',
+                    coberturaReport: 'report/',
+                    linesThresholdPct: 85
+                }
+            },
+            all: ['tests/*html']
         }
     });
 
@@ -73,6 +84,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-jslint');
     grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-qunit-istanbul');
 
     // Task to run tests
     grunt.registerTask('test', [
