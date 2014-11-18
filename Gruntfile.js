@@ -76,6 +76,15 @@ module.exports = function(grunt) {
                 }
             },
             all: ['tests/*html']
+        },
+        coveralls: {
+            options: {
+                src: 'report/lcov.info',
+                force: false
+            },
+            app: {
+                src: 'report/lcov.info'
+            }
         }
     });
 
@@ -84,13 +93,15 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-jslint');
+    grunt.loadNpmTasks('grunt-coveralls');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-qunit-istanbul');
 
     // Task to run tests
     grunt.registerTask('test', [
         'jslint',
-        'qunit'
+        'qunit',
+        'coveralls'
     ]);
 
     // Task to build
