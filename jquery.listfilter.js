@@ -72,7 +72,10 @@
 
                     // Display them
                     match.show();
-                    that.settings.callback();
+                    // Only fire if a callback was actually defined
+                    if (that.settings.callback) {
+                        that.settings.callback();
+                    }
                 }).on('keyup', function () {
                     filter.change();
                 });
