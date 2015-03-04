@@ -10,6 +10,6 @@
     "grunt-qunit-istanbul": "^0.4.5"
   },
   "scripts": {
-    "test": "grunt test --verbose"
+    "test": "grunt coveragetest --verbose"
   }
 }

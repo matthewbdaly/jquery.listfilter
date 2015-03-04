@@ -100,14 +100,20 @@ module.exports = function(grunt) {
     // Task to run tests
     grunt.registerTask('test', [
         'jslint',
+        'qunit'
+    ]);
+
+    // Task to run tests with coverage
+    grunt.registerTask('coveragetest', [
+        'jslint',
         'qunit',
         'coveralls'
     ]);
 
     // Task to build
     grunt.registerTask('build', [
-        'uglify',
-        'test'
+        'test',
+        'uglify'
     ]);
 
     // Server task
