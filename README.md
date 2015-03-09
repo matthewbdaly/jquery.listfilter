@@ -28,7 +28,7 @@ Creating a filtered list
 
 To create a filtered list, you need two things as a minimum:
 
-* An HTML list to filter
+* An HTML list or table to filter
 * A text input to enter the text to filter by into
 
 Assuming that the list you want to filter has an ID of mylist and the filter is an input with an id of myfilter, the following would set up a listfilter:
