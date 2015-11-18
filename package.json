@@ -1,4 +1,7 @@
 {
+  "name": "listfilter",
+  "version": "1.0.0",
+  "description": "Filter an HTML table or list",
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-connect": "~0.6.0",
@@ -9,7 +12,26 @@
     "grunt-jslint": "~1.1.1",
     "grunt-qunit-istanbul": "^0.4.5"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Astutech/jquery.listfilter.git"
+  },
+  "author": {
+    "name": "Matthew Daly",
+    "email": "matthew@astutech.com",
+    "url": "http://astutech.com/"
+  },
+  "github": "https://github.com/Astutech/jquery.listfilter",
   "scripts": {
     "test": "grunt coveragetest --verbose"
+  },
+  "main": "jquery.listfilter.min.js",
+  "keywords": {
+    "filter",
+    "html",
+    "list",
+    "table",
+    "jquery-plugin",
+    "ecosystem:jquery"
   }
 }
