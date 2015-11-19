@@ -26,12 +26,12 @@
     "test": "grunt coveragetest --verbose"
   },
   "main": "jquery.listfilter.min.js",
-  "keywords": {
+  "keywords": [
     "filter",
     "html",
     "list",
     "table",
     "jquery-plugin",
     "ecosystem:jquery"
-  }
+  ]
 }
