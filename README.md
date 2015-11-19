@@ -22,6 +22,10 @@ It's now available via Bower:
 
     bower install jquery.listfilter
 
+Or npm:
+
+    npm install listfilter
+
 
 Creating a filtered list
 ========================
