@@ -18,11 +18,7 @@ Here's an example:
 Installation
 ============
 
-It's now available via Bower:
-
-    bower install jquery.listfilter
-
-Or npm:
+It's now available via NPM:
 
     npm install listfilter
 
