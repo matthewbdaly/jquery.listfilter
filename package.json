@@ -1,6 +1,6 @@
 {
   "name": "listfilter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Filter an HTML table or list",
   "devDependencies": {
     "grunt": "~0.4.1",
@@ -14,18 +14,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Astutech/jquery.listfilter.git"
+    "url": "https://github.com/matthewbdaly/jquery.listfilter.git"
   },
   "author": {
     "name": "Matthew Daly",
-    "email": "matthew@astutech.com",
-    "url": "http://astutech.com/"
+    "email": "matthewbdaly@gmail.com",
+    "url": "http://matthewdaly.co.uk/"
   },
-  "github": "https://github.com/Astutech/jquery.listfilter",
+  "github": "https://github.com/matthewbdaly/jquery.listfilter",
   "scripts": {
     "test": "grunt coveragetest --verbose"
   },
-  "main": "jquery.listfilter.min.js",
+  "main": "jquery.listfilter.js",
   "keywords": [
     "filter",
     "html",
