@@ -18,7 +18,8 @@
                 'alternate': null,
                 'alternateclass': 'alternate',
                 'nofilter': 'nofilter',
-                'callback': null
+                'callback': null,
+                'count': null
             }, options);
 
             // Get the items
@@ -44,6 +45,12 @@
             if (that.settings.alternate) {
                 that.items.filter(':odd').addClass(that.settings.alternateclass);
             }
+
+            // Set count
+            if (that.settings.count) {
+                that.settings.count.text(that.items.length);
+            }
+
             // When the contents of the filter change, update the list
             filter
                 .change(function () {
@@ -72,6 +79,12 @@
 
                     // Display them
                     match.show();
+
+                    // Set count
+                    if (that.settings.count) {
+                        that.settings.count.text(match.length);
+                    }
+
                     // Only fire if a callback was actually defined
                     if (that.settings.callback) {
                         that.settings.callback();

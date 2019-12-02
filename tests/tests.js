@@ -2,7 +2,7 @@ $(function () {
     'use strict';
 
     // Apply the filter
-    var myfilter, mytablefilter, filter = $('input#filterinput'), clearfilter = $('input#clearfilter'), tablefilter = $('input#tablefilterinput'), tableclearfilter = $('input#tableclearfilter');
+    var myfilter, mytablefilter, filter = $('input#filterinput'), clearfilter = $('input#clearfilter'), tablefilter = $('input#tablefilterinput'), tableclearfilter = $('input#tableclearfilter'), count = $('#count');
     myfilter = $('ul#mylist').listfilter({
         'filter': filter,
         'clearlink': clearfilter,
@@ -10,7 +10,8 @@ $(function () {
         'alternateclass': 'other',
         'callback': function () {
             window.callback += 1;
-        }
+        },
+        'count': count
     });
     mytablefilter = $('table#mytable').listfilter({
         'filter': tablefilter,
@@ -50,12 +51,14 @@ $(function () {
 
         // Test filter with no content
         ok(myfilter.children('li:visible').length === 5, "All 5 items visible");
+        ok(count.text() === '5', 'Count set to 5');
 
         // Enter text in the filter
         filter.val('T').change();
 
         // Assert that only two elements are now visible
         ok(myfilter.children('li:visible').length === 2, "Only 2 items visible");
+        ok(count.text() === '2', 'Count set to 2');
         filter.val('').change();
 
         // Enter more text
@@ -63,10 +66,12 @@ $(function () {
 
         // Assert that only thee elements are now visible
         ok(myfilter.children('li:visible').length === 3, "Only 3 items visible");
+        ok(count.text() === '3', 'Count set to 3');
         filter.val('').change();
 
         // Assert that all 4 are again visible
         ok(myfilter.children('li:visible').length === 5, "All 5 items visible");
+        ok(count.text() === '5', 'Count set to 5');
     });
 
     // Test filter and alternate together

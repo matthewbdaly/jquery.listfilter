@@ -112,7 +112,6 @@ module.exports = function(grunt) {
 
     // Task to build
     grunt.registerTask('build', [
-        'test',
         'uglify'
     ]);
 
