@@ -108,6 +108,8 @@
                     }
                 }).on('keyup', function () {
                     filter.change();
+                }).on('search', function () {
+                    filter.change();
                 });
 
             // When the clear link is clicked, clear the filter
