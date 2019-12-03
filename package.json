@@ -1,6 +1,6 @@
 {
   "name": "listfilter",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Filter an HTML table or list",
   "devDependencies": {
     "grunt": "~0.4.1",
