@@ -11,7 +11,8 @@ $(function () {
         'callback': function () {
             window.callback += 1;
         },
-        'count': count
+        'count': count,
+        'emptymessage': 'No matches'
     });
     mytablefilter = $('table#mytable').listfilter({
         'filter': tablefilter,
@@ -21,6 +22,23 @@ $(function () {
         'callback': function () {
             window.callback += 1;
         }
+    });
+
+    // Test empty message applied correctly
+    test("Empty message applied correctly", function () {
+        // Message starts out invisble
+        ok(myfilter.children('li:visible').length === 5, "All 5 items visible");
+        ok(myfilter.children('div.emptymessage:visible').length === 0, "No message visible");
+
+        // Message shows with no matches
+        filter.val('Seven').change();
+        ok(myfilter.children('li:visible').length === 0, "No items visible");
+        ok(myfilter.children('div.emptymessage:visible').length === 1, "Empty message visible");
+
+        // Message no longer shows once items are visible again
+        filter.val('').change();
+        ok(myfilter.children('li:visible').length === 5, "All 5 items visible");
+        ok(myfilter.children('div.emptymessage:visible').length === 0, "No message visible");
     });
 
     // Test alternate class applied correctly
