@@ -19,7 +19,8 @@
                 'alternateclass': 'alternate',
                 'nofilter': 'nofilter',
                 'callback': null,
-                'count': null
+                'count': null,
+                'emptymessage': null
             }, options);
 
             // Get the items
@@ -51,6 +52,11 @@
                 that.settings.count.text(that.items.length);
             }
 
+            // Set empty message
+            if (that.settings.emptymessage) {
+                that.settings.emptymessage.hide();
+            }
+
             // When the contents of the filter change, update the list
             filter
                 .change(function () {
@@ -70,6 +76,9 @@
                         match = that.items;
                     } else {
                         match = that.items.filter('.' + that.settings.nofilter + ', :icontains(' + filtertext + ')');
+                        if (that.settings.emptymessage) {
+                            match = match.not(that.settings.emptymessage);
+                        }
                     }
 
                     // If alternate is set, amend the link styling to maintain alternation
@@ -83,6 +92,14 @@
                     // Set count
                     if (that.settings.count) {
                         that.settings.count.text(match.length);
+                    }
+
+                    // Handle empty message
+                    if (that.settings.emptymessage) {
+                        that.settings.emptymessage.hide();
+                        if (match.length === 0) {
+                            that.settings.emptymessage.show();
+                        }
                     }
 
                     // Only fire if a callback was actually defined

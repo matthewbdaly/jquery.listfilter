@@ -4,7 +4,7 @@
         <title>Listfilter example</title>
         <link rel="stylesheet" type="text/css" href="style.css">
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script type="text/javascript" src="../jquery.listfilter.min.js"></script>
+        <script type="text/javascript" src="../jquery.listfilter.js"></script>
         <script type="text/javascript">
             $(document).ready(function () {
                 'use strict';
@@ -15,7 +15,8 @@
                     'filter': filter,
                     'clearlink': clearfilter,
                     'alternate': true,
-                    'alternateclass': 'other'
+                    'alternateclass': 'other',
+                    'emptymessage': $('div.emptymessage')
                 });
             });
         </script>
@@ -32,6 +33,7 @@
             <li>Three</li>
             <li>Four</li>
             <li>Five</li>
+            <div class="emptymessage">No matches</div>
         </ul>
     </body>
 </html>
